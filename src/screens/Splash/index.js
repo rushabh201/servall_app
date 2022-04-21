@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { colors } from '../../constants';
-
 import ServAllLogo from '../../assets/images/logo/logo.png'
-const ImageUri=Image.resolveAssetSource(ServAllLogo).uri
+
+const ImageUri=Image.resolveAssetSource(ServAllLogo).uri;
 
 export default function Splash() {
 

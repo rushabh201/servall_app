@@ -3,6 +3,7 @@ import { USER } from '../actions/actionTypes';
 const initialState = {
     user: null,
     userToken: null,
+    userRole: "Customer",
 }
 
 export default function User(state = initialState, action) {
@@ -11,7 +12,8 @@ export default function User(state = initialState, action) {
             return {
                 ...state,
                 user: action.data.user,
-                userToken: action.data.user_token
+                userToken: action.data.user_token,
+                userRole: action.data.user_role
             }
         default:
             return state;

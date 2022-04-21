@@ -38,46 +38,46 @@ import { Platform } from 'react-native';
 //     }
 // }
 
-const updateUser = function* updateUser(flag) {
-    try {
-        const user_token = yield select(state => state.user.userToken);
-        const res = yield call(apiGet, 'get_user', { 'Authorization': 'Bearer ' + user_token });
+// const updateUser = function* updateUser(flag) {
+//     try {
+//         const user_token = yield select(state => state.user.userToken);
+//         const res = yield call(apiGet, 'get_user', { 'Authorization': 'Bearer ' + user_token });
 
-        if (res.status == 200) {
-            yield put(setUserToken({ user: res.data, user_token: user_token }));
-            if (flag.data)
-                yield call(updateUserNotification);
-            saveValue('USER', JSON.stringify(res.data));
-        } else {
-            yield put(signOut())
-        }
-    } catch (e) {
-        console.log(e);
-    }
-}
+//         if (res.status == 200) {
+//             yield put(setUserToken({ user: res.data, user_token: user_token }));
+//             if (flag.data)
+//                 // yield call(updateUserNotification);
+//             saveValue('USER', JSON.stringify(res.data));
+//         } else {
+//             yield put(signOut())
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
 
-const fetchContinuously = function* fetchContinuously() {
-    try {
-        const user_token = yield select(state => state.user.userToken);
-        const user_verified = yield select(state => state.user.user.verified);
-        if (!user_verified) {
-            const res = yield call(apiGet, 'get_user', { 'Authorization': 'Bearer ' + user_token });
+// const fetchContinuously = function* fetchContinuously() {
+//     try {
+//         const user_token = yield select(state => state.user.userToken);
+//         // const user_verified = yield select(state => state.user.user.verified);
+//         if (!user_token) {
+//             const res = yield call(apiGet, 'get_user', { 'Authorization': 'Bearer ' + user_token });
 
-            if (res.status == 200) {
-                yield put(setUserToken({ user: res.data, user_token: user_token }));
-                yield put(setUserToken({ user: res.data, user_token: user_token }));
+//             if (res.status == 200) {
+//                 yield put(setUserToken({ user: res.data, user_token: user_token }));
+//                 yield put(setUserToken({ user: res.data, user_token: user_token }));
 
-                saveValue('USER', JSON.stringify(res.data));
-            } else {
-                yield put(signOut())
-            }
-        }
-    } catch (e) {
-        console.log(e);
-    }
-    yield delay(60000);
-    yield put({ type: "FETCH_CONTINUOUSLY" })
-}
+//                 saveValue('USER', JSON.stringify(res.data));
+//             } else {
+//                 yield put(signOut())
+//             }
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+//     yield delay(60000);
+//     yield put({ type: "FETCH_CONTINUOUSLY" })
+// }
 
 // const updateUserNotification = function* updateUserNotification() {
 //     try {

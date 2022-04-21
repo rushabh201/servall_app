@@ -24,13 +24,6 @@ const AllStack = ({ navigation }) => {
          
     >
       <MoreStack.Screen 
-          name="ChooseGarage" 
-          component={ChooseGarage} 
-          options= {{
-              title: "Choose Garage",
-          }}
-      />
-      <MoreStack.Screen 
           name="More" 
           component={More}
           options={{
@@ -47,7 +40,20 @@ const AllStack = ({ navigation }) => {
                   ),
           }}
       />
-
+      <MoreStack.Screen 
+          name="ChooseGarage" 
+          component={ChooseGarage} 
+          options= {{
+              title: "Choose Garage",
+          }}
+      />
+      <MoreStack.Screen 
+        name="AddGarage" 
+        component={AddGarage} 
+        options= {{
+            title: "Add Garage",
+        }}
+      />
       <MoreStack.Screen 
         name="MyCustomers" 
         component={MyCustomers}
@@ -104,18 +110,12 @@ const AllStack = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     buttonStyle: {
-        // alignItems: 'center',
-        // flexDirection: 'row',
-        // paddingVertical: 0,
-        // paddingHorizontal: 0,
-        // padding:0,
         letterSpacing: 0,
         lineHeight:0,
         margin:0,
         fontSize: 10,
         borderColor: colors.secondary,
         borderWidth: 1,
-        // backgroundColor: colors.default_theme.secondary,
       }, 
       topbarButton: {
         justifyContent: "center",

@@ -17,7 +17,7 @@ const Login = ({navigation, loginRequest, loginError, error, authenticating, res
     const [otp, setOtp] = useState("");
     const [emailError, setEmailError] = useState();
     const [OtpError, setOtpError] = useState();
-    const [isPassword, setIsPassword] = useState("12345678");
+    // const [isPassword, setIsPassword] = useState("12345678");
     
     const submit = () => {
          if(email.length == 0){
@@ -44,20 +44,17 @@ const Login = ({navigation, loginRequest, loginError, error, authenticating, res
     }
 
     const verifyOTP = () => {
-        // let otpCode = ({'email': email, 'otp': otp})
-        // loginWithOtp(otpCode);
-        // console.log(otp.length);
         setOtpError("");
         if (otp.length != 4) {
             return setOtpError('OTP Should be 4 digit');
         };
         loginRequest({'email': email, 'otp': otp});
-        // navigation.navigate('services');
+        // resetLogin();
+        // navigation.navigate('inside');
     }
 
 
     const sendOTP = (data) => { 
-        // console.log(data);
         fetch(`${API_URL}send_otp`,
         {
             method: 'POST',
@@ -178,6 +175,7 @@ const Login = ({navigation, loginRequest, loginError, error, authenticating, res
                             style={styles.input}
                             // innerRef={otpRef}
                             keyboardType="numeric"
+                            textContentType="oneTimeCode"
                             value={otp}
                             onChangeText={(text) => setOtp(text)}
                             error={(otp?.trim()?.length === 0) ? "OTP is required" : (otp?.trim()?.length !== 4) ? "OTP Should be of 4 digit" : undefined}

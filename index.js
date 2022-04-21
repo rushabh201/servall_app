@@ -9,7 +9,8 @@
  
  LogBox.ignoreLogs([
      '`new NativeEventEmitter()` was called with a non-null argument',
-     'Found screens with the same name nested inside one another.'
+     'Found screens with the same name nested inside one another.',
+     "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!"
  ]);
  
  AppRegistry.registerComponent(appName, () => App);

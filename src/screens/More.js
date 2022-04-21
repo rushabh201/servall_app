@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import {  List, Divider } from 'react-native-paper';
 import { colors } from '../constants';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import IconX from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const More = ({ navigation }) => {
@@ -102,9 +103,16 @@ const More = ({ navigation }) => {
                   right={() => (<Icon name="caret-right" style={{marginRight:20, alignSelf:"center"}} color={colors.gray} size={18} />)}
                 />
                 <Divider />
+                <List.Item
+                  title="Log Out"
+                  // description="Item description"
+                  style={{paddingVertical:15}}
+                  left={() => (<IconX name="logout" style={{marginRight:20, alignSelf:"center", width: 30}} color={colors.black} size={26} />)}
+                  right={() => (<Icon name="caret-right" style={{marginRight:20, alignSelf:"center"}} color={colors.gray} size={18} />)}
+                />
+                {/* <Divider /> */}
               </ScrollView>
             </View>
-
         </View>
       );
    }

@@ -4,7 +4,6 @@
 
  import React, { useEffect } from 'react';
  import { SafeAreaView, StatusBar } from 'react-native';
- import { connect } from 'react-redux';
  import AppContainer from './AppContainer';
  import { DefaultTheme, Provider as PaperProvider, configureFonts } from 'react-native-paper';
  import { colors, gStyle } from './constants';
@@ -23,27 +22,25 @@
      font: configureFonts(gStyle.fontConfig),
  };
  
- export default function App() {
+export default function App() {
      // useEffect(() => {
      //     SplashScreen.hide()
      // }, [])
  
      useEffect(() => {
-         setTimeout(() => store.dispatch(appInit()), 2000)
+         setTimeout(() => store.dispatch(appInit()), 1000)
      }, [])
  
      return (
- 
-             <SafeAreaView style={{ backgroundColor:"#ffffff", flex: 1 }}>
-                 <NetInfoProvider>
-                     <StatusBar backgroundColor="#fff" barStyle={'dark-content'} />
-                     <Provider store={store}>
-                         <PaperProvider theme={theme}>
-                            <AppContainer />
-                         </PaperProvider>
-                     </Provider>
-                 </NetInfoProvider>
-             </SafeAreaView>
- 
-         );
-   }
+        <SafeAreaView style={{ backgroundColor:"#ffffff", flex: 1 }}>
+            <NetInfoProvider>
+                <StatusBar backgroundColor="#fff" barStyle={'dark-content'} />
+                <Provider store={store}>
+                    <PaperProvider theme={theme}>
+                    <AppContainer />
+                    </PaperProvider>
+                </Provider>
+            </NetInfoProvider>
+        </SafeAreaView>
+    );
+}
